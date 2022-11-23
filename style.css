@@ -1,0 +1,300 @@
+@font-face {
+    font-family: Philosopher;
+    src: url(./Philosopher/Philosopher-Regular.woff);
+}
+
+@font-face {
+    font-family: Philosopher;
+    src: url(./Philosopher/Philosopher-Regular.woff2);
+}
+
+* {
+    user-select: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.container {
+    width: 350px;
+    height: 350px;
+    background-color: white;
+    box-shadow: 0 0 90px -5px #a263ff;
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.title {
+    position: absolute;
+    top: 20%;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.dateColor {
+    color: #a263ff;
+    font-family: monospace;
+}
+
+.dateCont {
+    position: absolute;
+    bottom: 20%;
+    font-family: 'Philosopher', sans-serif;
+}
+
+.dateCont h3,
+.dateCont p {
+    margin: 0;
+}
+
+.top,
+.left,
+.rigth,
+.bottom {
+    position: absolute;
+    font-family: system-ui;
+    top: 0;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.top::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    right: -70px;
+    top: 40px;
+}
+
+.top::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    left: -70px;
+    top: 40px;
+}
+
+.left {
+    left: 5px;
+    top: 45%;
+}
+
+.left::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    left: 25px;
+    top: 80px;
+}
+
+.left::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    right: -25px;
+    top: -50px;
+}
+
+.rigth {
+    right: 5px;
+    top: 45%;
+}
+
+.rigth::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    right: 25px;
+    top: 80px;
+}
+
+.rigth::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    right: 25px;
+    top: -50px;
+}
+
+.bottom {
+    bottom: 0;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bottom::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    right: -70px;
+    bottom: 35px;
+}
+
+.bottom::before {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: black;
+    border-radius: 100%;
+    left: -70px;
+    bottom: 35px;
+}
+
+.wrapper {
+    width: 15px;
+    height: 15px;
+    border-radius: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(270deg) rotateX(180deg);
+}
+
+.hour-cont,
+.min-cont,
+.sec-cont {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.hour-cont {
+    transform: rotate(0);
+}
+
+.min-cont {
+    z-index: 1;
+    transform: rotate(0);
+}
+
+.sec-cont {
+    z-index: 2;
+    transform: rotate(0);
+}
+
+.hour,
+.min,
+.sec {
+    background-color: black;
+    clip-path: polygon(0 0, 0 100%, 100% 50%);
+}
+
+.hour-cont::after,
+.min-cont::after,
+.sec-cont::after {
+    content: '';
+    background-color: black;
+    position: absolute;
+    left: -25px;
+    top: 0;
+    width: 30px;
+    height: 100%;
+    clip-path: polygon(0% 2%, 0% 98%, 10% 83%, 10% 20%, 75% 50%, 75% 50%, 10% 81%, 0 98%, 100% 50%, 100% 50%);
+    transform: rotate(180deg);
+}
+
+.hour {
+    width: 120px;
+    height: 100%;
+    border-radius: 15px;
+    clip-path: polygon(0 0, 100% 30%, 100% 70%, 0 100%);
+}
+
+.min {
+    width: 140px;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.sec {
+    width: 150px;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.secanim::before {
+    content: '';
+    position: absolute;
+    background-color: white;
+    left: 10px;
+    top: 0;
+    width: 0px;
+    height: 100%;
+    box-shadow: 0 0 3px 1px white;
+    animation: sec_anim 300ms ease-in;
+    z-index: 1;
+    opacity: 0;
+}
+
+@keyframes sec_anim {
+    0% {
+        left: 10px;
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    99% {
+        left: 180px;
+        opacity: 1;
+    }
+    100% {
+        left: 10px;
+        opacity: 0;
+    }
+}
+
+.container-morning {
+    transform: scale(0.5);
+    top: -50px;
+    left: 250px;
+    box-shadow: 0 0 20px 25px #fbff00;
+    background-color: #fbff00;
+}
+
+.container-sunset {
+    transform: scale(0.65);
+    box-shadow: 0 0 20px 25px #fbff00;
+    background-color: #fbff00;
+}
+
+.container-nigth {
+    transform: scale(0.65);
+    box-shadow: 0 0 20px 25px white;
+    background-color: white;
+}
